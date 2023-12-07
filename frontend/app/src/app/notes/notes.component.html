@@ -1,0 +1,8 @@
+<div class="card-container">
+    <mat-card *ngFor="let note of notes" routerLink="/note/{{note.id}}">
+        {{note.text}}
+    </mat-card>
+    <button mat-fab color="primary" matTooltip="Neue Notiz erstellen" routerLink="/newNote">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

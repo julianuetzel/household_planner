@@ -1,0 +1,25 @@
+
+<div class="card-container">
+        <mat-card *ngFor="let list of lists" routerLink="/list/{{list.id}}">
+            <mat-card-header>
+                <h2>{{list.title}}</h2>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let item of list.items | slice:0:3">
+                        <mat-checkbox 
+                            [checked]="checked(item.status)"
+                            [color]="color"
+                            disabled="true"
+                            >
+                            {{item.text}}
+                        </mat-checkbox>
+                    </mat-list-item>
+                    <mat-list-item *ngIf="list.items.length>3">...</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+        <button mat-fab color="primary" matTooltip="Neue Liste erstellen" routerLink="/newList">
+            <mat-icon>add</mat-icon>
+        </button>
+</div>
